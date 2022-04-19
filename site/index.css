@@ -18,7 +18,13 @@ figure, img {
 }
 
 .spinner{
-    
+    display: flex;
+    justify-content: center;    
+}
+
+.spinner > img{
+    width: 400px;
+    height: auto;
 }
 
 .hidden{
