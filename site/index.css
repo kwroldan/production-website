@@ -1,0 +1,27 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: hsl(0, 0%, 20%);
+    color: white;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+header > figure {
+    border: solid 8px hsl(0, 0%, 0%);
+}
+
+figure, img {
+    width: 100px;
+    height: 75px;
+}
+
+.spinner{
+    
+}
+
+.hidden{
+    display: none;
+}
+
