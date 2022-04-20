@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Lato&display=swap');
+
+body {
+    font-family: 'Comfortaa', cursive;
+}
+
 header {
     display: flex;
     justify-content: space-between;
@@ -8,12 +14,17 @@ header {
     padding: 20px;
 }
 
+h1 {
+    font-weight: bold;
+    font-size: 40px;
+}
+
 header > figure {
     border: solid 8px hsl(0, 0%, 0%);
 }
 
 figure, img {
-    width: 100px;
+    width: 105px;
     height: 75px;
 }
 
@@ -31,3 +42,24 @@ figure, img {
     display: none;
 }
 
+.breed-grid-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.breed-grid-container > p {
+    margin-right: 20px;
+}
+
+.grid-images {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 60px;
+}
+
+.grid-images > figure{
+    text-align: center;
+}
