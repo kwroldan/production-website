@@ -3,7 +3,6 @@
     <head>
         <title>Production Website</title>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"
         integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -15,19 +14,26 @@
     </head>
     <body>
         <header>
-            <nav>
-                <div id="hamburger" onclick="transformIcon(this)">
-                    <div class="bar1"></div>
-                    <div class="bar2"></div>
-                    <div class="bar3"></div>
-                </div>
-                <ul id="site-navigation">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="minigames.html">Minigames</a></li>
-                    <li><a href="search.html">Search for a Breed</a></li>
-                </ul>
-            </nav>
+            <nav>Hamburger Menu</nav>
             <h1>All About Dogs!</h1>
             <img src="images/DogEmblem.png" alt="Silhouette of Dog with Tail in the air" />
         </header>
+        <div class="spinner">
+            <img src="images/DogSpinner.gif" alt="Dog running" />
+        </div>
+        <section class="breed-grid-container">
+            <div class="knowledge-test">
+                <h2>Test your knowledge!</h2>
+                <p>
+                    Look at the pictures of the breeds to the right and see if you can guess the breed of each dog. Click the button below to find out if your guesses were correct!
+                </p>
+                <button id="reveal">Reveal Breed Names</button>
+                <button id="reroll">Try Different Breeds</button>
+            </div>
+            <div class="grid-images"></div>
+        </section>
+
+        <footer>
+            <a>Back to Top</a>
+        </footer>
     </body>

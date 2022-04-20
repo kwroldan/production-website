@@ -3,6 +3,10 @@ const dogApiKey = "56ca9d3f-7947-4e93-893b-beea68ab3430";
 const spinner = document.querySelector(".spinner");
 const header = document.querySelector("header");
 
+function transformIcon(icon){
+    icon.classList.toggle("change");
+}
+
 /*function getRandomElement(array){
     return array[(Math.random() * array.length) | 0]
 }*/
@@ -28,6 +32,7 @@ function createRandomGridImage(array){
         breedGrid.append(singleGridImage)
     })
 }
+
 const revealButton = document.querySelector("#reveal");
 revealButton.addEventListener("click", event => {
     const allCaptions = document.querySelectorAll("figcaption");
