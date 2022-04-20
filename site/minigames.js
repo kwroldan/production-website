@@ -3,7 +3,6 @@ const dogApiKey = "56ca9d3f-7947-4e93-893b-beea68ab3430";
 const spinner = document.querySelector(".spinner");
 const header = document.querySelector("header");
 
-
 function getRandomHeaderImage(array){
     let randomBreed = getRandomElement(array);
     let breedImage = document.createElement("figure");
@@ -45,12 +44,12 @@ rerollButton.addEventListener("click", event => {
         spinner.classList.add("hidden");
 })
 
-/* fetch(apiUrl).then(response => response.json())
+fetch(apiUrl).then(response => response.json())
     .then(parsedResponse => {
         createRandomGridImage(parsedResponse);
         spinner.classList.add("hidden");
     });
 
-    /*function getRandomElement(array){
+/*function getRandomElement(array){
     return array[(Math.random() * array.length) | 0]
 }*/
