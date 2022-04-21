@@ -24,7 +24,7 @@ header {
     font-size: 18px;
 }
 
-#site-navigation, a {
+#site-navigation a {
     text-decoration: none;
     font-size: 15px;
     display: block;
@@ -36,7 +36,6 @@ header {
     color: hsl(0, 0%, 80%);
 }
 
-
 h1 {
     font-weight: bolder;
     font-size: 40px;
@@ -47,6 +46,7 @@ h2 {
     font-size: 25px;
     text-align:center;
     margin-bottom: 25px;
+    margin-top: 10px;
 }
 
 header > figure {
@@ -87,6 +87,60 @@ section {
     color:hsl(0, 0%, 80%);
 }
 
+@media (max-width: 920px) {
+    section {
+        display:block;
+    }
+}
+
+#landing-section {
+    display: block;
+    text-align: center;
+}
+
+#landing-section h2 {
+    margin-top: 10px;
+    font-size: 36px;
+}
+
+#landing-section > p {
+    display: inline-block;
+    text-align: justify;
+    margin-top: 10px;
+    font-size: 25px;
+}
+
+#landing-section a {
+    display: inline;
+    text-decoration: none;
+    font-size: 25px;
+    transition: 0.3s;
+    color: hsl(0, 0%, 100%);
+}
+
+#landing-section a:hover {
+    color: hsl(0, 0%, 80%);
+    background-color: hsl(0, 0%, 0%);
+}
+
+.Remi-Winnie-Pics {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+}
+
+.Remi-Winnie-Pics > img {
+    width: 33%;
+    height: auto;
+    border: ridge 5px hsl(0, 0%, 10%);
+}
+
+.Remi-Winnie-Pics > img + img {
+    margin-left: 10px;
+}
+
+
 .breed-grid-container > p {
     margin-right: 20px;
 }
@@ -125,12 +179,35 @@ button:hover {
     margin-top: 10px;
 }
 
+@media (max-width: 920px) {
+	.knowledge-test {
+        display: block;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        height: 100%;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+	}
+}
+
 .grid-images {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(2, 1fr);
     grid-gap: 45px;
     font-size: 12px;
+}
+
+@media (max-width: 920px) {
+    .grid-images {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        grid-gap: 20px;
+        font-size: 12px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 .grid-images > figure {

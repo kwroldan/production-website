@@ -44,23 +44,18 @@ rerollButton.addEventListener("click", event => {
         spinner.classList.add("hidden");
 })
 
-fetch(apiUrl).then(response => response.json())
-    .then(parsedResponse => {
-        createRandomGridImage(parsedResponse);
-        //generateQuestion(parsedResponse);
-        spinner.classList.add("hidden");
-    });
-
 // Breeding Purpose Minigame
 function getRandomElement(array){
     return array[(Math.random() * array.length) | 0]
 }
 
+let selectedBreed = "";
+
 function generateQuestion(array){
     const questionForm = document.querySelector("#quiz-form");
     const bredForArray = array.filter(element => element.bred_for);
     const answerPoolArray = _.sampleSize(bredForArray, 4);
-    const selectedBreed = getRandomElement(answerPoolArray);
+    selectedBreed = getRandomElement(answerPoolArray);
     questionForm.innerHTML = `
     <label for="${answerPoolArray[0].bred_for}">
         <input type="radio" name="choice" value="${answerPoolArray[0].bred_for}">
@@ -87,12 +82,13 @@ function generateQuestion(array){
         <figcaption id="quizImage">${selectedBreed.name}</figcaption>
     `
     purposeImage.append(selectedBreedImage);
-    const quizForm = document.querySelector("form");
-    quizForm.addEventListener("submit", (event) => {
-        event.preventDefault();
-        checkAnswer(selectedBreed);
-    })
 }
+
+const quizForm = document.querySelector("form");
+quizForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    checkAnswer(selectedBreed);
+})
 
 function checkAnswer(selectedBreed){
     const radioOptions = document.querySelectorAll("input");
@@ -124,7 +120,7 @@ newQuizQuestionButton.addEventListener("click", event => {
 
 fetch(apiUrl).then(response => response.json())
     .then(parsedResponse => {
+        createRandomGridImage(parsedResponse);
         generateQuestion(parsedResponse);
+        spinner.classList.add("hidden");
     })
-
-
