@@ -2,6 +2,7 @@
 
 body {
     font-family: 'Comfortaa', cursive;
+    background-image:url(https://wallpaperaccess.com/full/3019585.jpg);
 }
 
 header {
@@ -41,13 +42,20 @@ h1 {
     font-size: 40px;
 }
 
+h2 {
+    font-weight:bold;
+    font-size: 25px;
+    text-align:center;
+    margin-bottom: 25px;
+}
+
 header > figure {
     border: solid 8px hsl(0, 0%, 0%);
 }
 
 figure, img {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 125px;
 }
 
 .spinner{
@@ -64,11 +72,19 @@ figure, img {
     display: none;
 }
 
-.breed-grid-container {
+section {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin-bottom: 50px;
+    margin-bottom: 25px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-bottom: 40px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border: ridge 5px hsl(0, 0%, 10%);
+    background-color: hsl(0, 0%, 30%);
+    color:hsl(0, 0%, 80%);
 }
 
 .breed-grid-container > p {
@@ -83,13 +99,6 @@ figure, img {
     width: 50%;
 }
 
-.knowledge-test > h2 {
-    font-weight:bold;
-    font-size: 25px;
-    text-align:center;
-    margin-bottom: 25px;
-}
-
 .knowledge-test > p {
     margin-bottom: 25px;
 }
@@ -99,7 +108,7 @@ figure, img {
     display: flex;
     margin-left: auto;
     margin-right: auto;
-    background-color: hsl(0, 0%, 20%);
+    background-color: hsl(0, 0%, 10%);
     color: white;
     border: outset 5px hsl(0, 0%, 0%);
     border-radius: 5px;
@@ -108,7 +117,7 @@ figure, img {
 }
 
 .knowledge-test > button:hover {
-    background-color: hsl(0, 0%, 10%);
+    background-color: hsl(0, 0%, 5%);
     cursor: pointer;
 }
 
@@ -130,4 +139,54 @@ figure, img {
 
 .grid-images > figure > img {
     border: groove 3px hsl(0, 0%, 0%);
+}
+
+.purpose-container {
+    padding: 20px;
+    padding-bottom: 40px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.purpose-image > figure {
+    text-align: center;
+}
+
+.purpose-image > figure > img {
+    border: groove 3px hsl(0, 0%, 0%);
+}
+
+.purpose-image > figure > figcaption {
+    font-size: 12px;
+}
+
+.purpose-question > form > input{
+    display: block;
+}
+
+.purpose-question > form > input:nth-child(5) {
+    margin-top: 10px;
+}
+
+.purpose-question > input + label {
+    display: inline-block;
+}
+
+#submit {
+    font-family: 'Comfortaa', cursive;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    background-color: hsl(0, 0%, 10%);
+    color: white;
+    border: outset 5px hsl(0, 0%, 0%);
+    border-radius: 5px;
+    padding: 10px;
+    transition: background-color 0.5s;
+}
+
+#submit:hover {
+    background-color: hsl(0, 0%, 5%);
+    cursor: pointer;
 }

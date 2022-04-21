@@ -25,6 +25,7 @@ function createRandomGridImage(array){
     })
 }
 
+// Breed Grid Buttons  
 const revealButton = document.querySelector("#reveal");
 revealButton.addEventListener("click", event => {
     const allCaptions = document.querySelectorAll("figcaption");
@@ -37,7 +38,6 @@ const rerollButton = document.querySelector("#reroll");
 rerollButton.addEventListener("click", event => {
     spinner.classList.remove("hidden");
     const gridFigures = document.querySelectorAll(".grid-images > figure");
-    console.log(gridFigures);
     gridFigures.forEach(figure => figure.remove());
     fetch(apiUrl).then(response => response.json())
         .then(parsedResponse => createRandomGridImage(parsedResponse));
@@ -47,9 +47,79 @@ rerollButton.addEventListener("click", event => {
 fetch(apiUrl).then(response => response.json())
     .then(parsedResponse => {
         createRandomGridImage(parsedResponse);
+        //generateQuestion(parsedResponse);
         spinner.classList.add("hidden");
     });
 
-/*function getRandomElement(array){
+// Breeding Purpose Minigame
+function getRandomElement(array){
     return array[(Math.random() * array.length) | 0]
-}*/
+}
+
+function generateQuestion(array){
+    const questionForm = document.createElement("form");
+    const bredForArray = array.filter(element => element.bred_for);
+    const answerPoolArray = _.sampleSize(bredForArray, 4);
+    console.log(answerPoolArray);
+    const selectedBreed = getRandomElement(answerPoolArray);
+    console.log(selectedBreed);
+    questionForm.innerHTML = `
+    <label for="${answerPoolArray[0].bred_for}">
+        <input type="radio" name="choice" value="${answerPoolArray[0].bred_for}">
+        ${answerPoolArray[0].bred_for}
+    </label>
+    <label for="${answerPoolArray[1].bred_for}">
+        <input type="radio" name="choice" value="${answerPoolArray[1].bred_for}">
+        ${answerPoolArray[1].bred_for}
+    </label>
+    <label for="${answerPoolArray[2].bred_for}">
+        <input type="radio" name="choice" value="${answerPoolArray[2].bred_for}">
+        ${answerPoolArray[2].bred_for}
+    </label>
+    <label for="${answerPoolArray[3].bred_for}">
+        <input type="radio" name="choice" value="${answerPoolArray[3].bred_for}">
+        ${answerPoolArray[3].bred_for}
+    </label>
+    <input type="submit" id="submit" value="Submit" />
+    <button class="reroll-">Try Another!</button>
+    `
+    const questionSection = document.querySelector(".purpose-question");
+    const purposeImage = document.querySelector(".purpose-image");
+    const selectedBreedImage = document.createElement("figure");
+    selectedBreedImage.innerHTML = `
+        <img src="${selectedBreed.image.url}" alt="${selectedBreed.name}" />
+        <figcaption id="quizImage">${selectedBreed.name}</figcaption>
+    `
+    purposeImage.append(selectedBreedImage);
+    questionSection.append(questionForm);
+    const quizForm = document.querySelector("form");
+    quizForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        checkAnswer(selectedBreed);
+    })
+}
+
+function checkAnswer(selectedBreed){
+    const radioOptions = document.querySelectorAll("input");
+    let answerValue = "";
+    radioOptions.forEach(radio => {
+        if (radio.checked) {
+            answerValue = radio.value
+        }
+    })
+    if (answerValue == "") {
+        alert("Please select an answer");
+    } else if (answerValue == `${selectedBreed.bred_for}`) {
+        alert("Correct!")
+    } else {
+        alert("Please try again.")
+    }
+
+}
+
+fetch(apiUrl).then(response => response.json())
+    .then(parsedResponse => {
+        generateQuestion(parsedResponse);
+    })
+
+
