@@ -103,7 +103,7 @@ section {
     margin-bottom: 25px;
 }
 
-.knowledge-test > button {
+button {
     font-family: 'Comfortaa', cursive;
     display: flex;
     margin-left: auto;
@@ -116,7 +116,7 @@ section {
     transition: background-color 0.5s;
 }
 
-.knowledge-test > button:hover {
+button:hover {
     background-color: hsl(0, 0%, 5%);
     cursor: pointer;
 }
@@ -149,15 +149,27 @@ section {
 }
 
 .purpose-image > figure {
+    display: inline;
     text-align: center;
 }
 
 .purpose-image > figure > img {
     border: groove 3px hsl(0, 0%, 0%);
+    width: 300px;
+    height: auto;
 }
 
 .purpose-image > figure > figcaption {
     font-size: 12px;
+}
+
+.purpose-question {
+    display: grid;
+}
+
+.purpose-question > form {
+    display: inline-grid;
+    text-align: left;
 }
 
 .purpose-question > form > input{
@@ -189,4 +201,12 @@ section {
 #submit:hover {
     background-color: hsl(0, 0%, 5%);
     cursor: pointer;
+}
+
+.new-quiz-question {
+    margin-top: 10px;
+}
+
+#quiz-button {
+    margin-top: 10px;
 }

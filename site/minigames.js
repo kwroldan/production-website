@@ -57,12 +57,10 @@ function getRandomElement(array){
 }
 
 function generateQuestion(array){
-    const questionForm = document.createElement("form");
+    const questionForm = document.querySelector("#quiz-form");
     const bredForArray = array.filter(element => element.bred_for);
     const answerPoolArray = _.sampleSize(bredForArray, 4);
-    console.log(answerPoolArray);
     const selectedBreed = getRandomElement(answerPoolArray);
-    console.log(selectedBreed);
     questionForm.innerHTML = `
     <label for="${answerPoolArray[0].bred_for}">
         <input type="radio" name="choice" value="${answerPoolArray[0].bred_for}">
@@ -81,17 +79,14 @@ function generateQuestion(array){
         ${answerPoolArray[3].bred_for}
     </label>
     <input type="submit" id="submit" value="Submit" />
-    <button class="reroll-">Try Another!</button>
     `
-    const questionSection = document.querySelector(".purpose-question");
     const purposeImage = document.querySelector(".purpose-image");
-    const selectedBreedImage = document.createElement("figure");
+    const selectedBreedImage = document.querySelector("#selected-breed");
     selectedBreedImage.innerHTML = `
         <img src="${selectedBreed.image.url}" alt="${selectedBreed.name}" />
         <figcaption id="quizImage">${selectedBreed.name}</figcaption>
     `
     purposeImage.append(selectedBreedImage);
-    questionSection.append(questionForm);
     const quizForm = document.querySelector("form");
     quizForm.addEventListener("submit", (event) => {
         event.preventDefault();
@@ -114,8 +109,18 @@ function checkAnswer(selectedBreed){
     } else {
         alert("Please try again.")
     }
-
 }
+
+const newQuizQuestionButton = document.querySelector("#quiz-button");
+newQuizQuestionButton.addEventListener("click", event => {
+    const quizImage = document.querySelector(".purpose-image > figure > img");
+    const quizFigcaption = document.querySelector(".purpose-image > figure > figcaption");
+    quizImage.remove();
+    quizFigcaption.remove();
+    fetch(apiUrl).then(response => response.json())
+        .then(parsedResponse => generateQuestion(parsedResponse));
+})
+
 
 fetch(apiUrl).then(response => response.json())
     .then(parsedResponse => {
