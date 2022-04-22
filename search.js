@@ -3,6 +3,9 @@ const dogApiKey = "56ca9d3f-7947-4e93-893b-beea68ab3430";
 const spinner = document.querySelector(".spinner");
 let breedName = "";
 const searchResultSection = document.querySelector("#search-result-section")
+const searchContainer = document.querySelector(".search-result-container");
+searchContainer.classList.add("hidden");
+searchContainer.classList.remove("search-result-container");
 
 function capitalizeFirstLetter(someString) {
     return someString.charAt(0).toUpperCase() + someString.slice(1)
@@ -15,7 +18,6 @@ function checkDogObject(object){
 }
 
 function checkProperties(objectProperty) {
-    console.log(objectProperty)
     if (objectProperty === undefined) {
         return "N/A"
     } else {
@@ -31,6 +33,8 @@ newSearchButton.addEventListener("click", event => {
     breedInformation.remove();
     searchResultSection.classList.add("hidden");
     newSearchButton.classList.add("hidden");
+    searchContainer.classList.add("hidden");
+searchContainer.classList.remove("search-result-container");
 })
 
 const searchForm = document.querySelector("form");
@@ -50,7 +54,7 @@ fetch(apiUrl).then(response => response.json())
         const searchResultFigure = document.createElement("figure");
         searchResultFigure.innerHTML = `
             <img src="${dogObject.image.url}" alt="${dogObject.name}" />
-            <figcaption>${dogObject.name}</figcaption>
+            <figcaption><em>${dogObject.name}</em></figcaption>
         `
         searchResultSection.append(searchResultFigure);
         const breedInformation = document.createElement("ul");
@@ -62,6 +66,8 @@ fetch(apiUrl).then(response => response.json())
             <li><em>Weight:</em> ${checkProperties(dogObject.weight.imperial)} lbs.</li>
         `
         searchResultSection.append(breedInformation);
+        searchContainer.classList.remove("hidden");
+        searchContainer.classList.add("search-result-container");
         searchResultSection.classList.remove("hidden");
         newSearchButton.classList.remove("hidden");
     })

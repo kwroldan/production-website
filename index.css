@@ -53,7 +53,7 @@ header > figure {
     border: solid 8px hsl(0, 0%, 0%);
 }
 
-figure, img {
+header > img {
     width: 150px;
     height: 125px;
 }
@@ -105,7 +105,6 @@ section {
 
 #landing-section > p {
     display: inline-block;
-    text-align: justify;
     margin-top: 10px;
     font-size: 25px;
 }
@@ -215,6 +214,8 @@ button:hover {
 }
 
 .grid-images > figure > img {
+    width: 150px;
+    height: 125px;
     border: groove 3px hsl(0, 0%, 0%);
 }
 
@@ -295,11 +296,12 @@ button:hover {
 }
 
 .search-form {
+    display: block;
     padding: 10px;
-    width: 50%;
 }
 
 .search-form > form {
+    display: block;
     margin-top: 30px;
     margin-bottom: 30px;
 }
@@ -312,27 +314,35 @@ em {
     font-weight: bolder;
 }
 
-#search-result-container {
+.search-result-container {
     display:flex;
     justify-content: center;
     align-items: center;
 }
 
-#section-result-section {
+#search-result-section {
+    display: inline-block;
     margin-left: auto;
     margin-right: auto;
     width: 50%;
     padding-top: 30px;
+    text-align: center;
 }
 
 #search-result-section > figure > img {
     border: ridge 5px hsl(0, 0%, 0%);
-    width: auto;
-    height: 100%;
+    width: 100%;
+    height: auto;
     margin-left: auto;
     margin-right: auto;
 }
 
-#search-result-section > ul {
-    margin-left: 100px;
+#search-result-section > figure > figcaption {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+#new-search-button {
+    margin-bottom: 40px;
 }
