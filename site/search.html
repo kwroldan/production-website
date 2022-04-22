@@ -29,12 +29,15 @@
         <div class="spinner">
             <img src="/images/DogSpinner.gif" class="hidden" alt="Dog running" />
         </div>
-        <section class="search-form">
-            <form>
-                <label for="breed-name">Enter the name of the breed you want to search:</label>
-                <input type="text" name="breed-name" id="first-name" />
-            </form>
-        </section>
-    
-    
+        <div id="search-form-container">
+            <section class="search-form">
+                <form>
+                    <label for="breed-name">Enter the name of the breed you want to search:</label>
+                    <input type="text" name="breed-name" id="breed-name" />
+                </form>
+            </section>
+        </div>
+        <div id="search-result-container">
+            <section class="hidden" id="search-result-section"></section>
+        </div>
     </body>
