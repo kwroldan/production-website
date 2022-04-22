@@ -346,3 +346,39 @@ em {
 #new-search-button {
     margin-bottom: 40px;
 }
+
+.error-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.error-container {
+    display: block;
+    border: ridge 5px hsl(0, 0%, 10%);
+    background-color: hsl(0, 0%, 30%);
+    color:hsl(0, 0%, 80%);
+    padding: 50px;
+}
+
+.error-container > h2, a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.error-container > a {
+    text-decoration: none;
+    color: hsl(0, 0%, 80%);
+    margin-top: 30px;
+    transition: 0.5s;
+}
+
+.error-container > a:hover {
+    color: hsl(0, 0%, 80%);
+    text-decoration: underline;
+}
+
+.error-container > h2 {
+    margin-top: 20px;
+}
