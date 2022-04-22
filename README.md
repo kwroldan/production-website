@@ -1,3 +1,11 @@
+# Welcome to All About Dogs! 
+
+This site allows the user to test their knowledge of dog breeds, as well as search for a breed they'd like to learn about. 
+
+![Website Preview](https://paste.pics/f9facf545f6d4cf8191cce85c0b5ef05)
+
+## Check it out at this link: 
+
 # Production Website
 
 ## Features
